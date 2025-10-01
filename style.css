@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+#game {
+  display: grid;
+  grid-template-columns: repeat(4, 100px); 
+  grid-gap: 15px; 
+}
+
+
+.carta {
+  width: 100px;
+  height: 100px;
+  background-color: #1e90ff; 
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px; 
+  cursor: pointer;
+  border-radius: 10px;
+  user-select: none;
+  transition: transform 0.3s; 
+}
+
+.carta.girada {
+  background-color: #808080; 
+  color: #000;
+  transform: rotateY(180deg);
+}
