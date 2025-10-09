@@ -1,5 +1,15 @@
+let juegoPrevio = false;
+
 function init() {
     const game = document.getElementById("game");
+
+    if (juegoPrevio) {
+        while (game.firstChild) {
+            game.removeChild(game.firstChild);
+        }
+    }
+
+    juegoPrevio = true
 
     let cartas = ["🍎", "🍌", "🍇", "🍉", "🍒", "🍍"];
 
@@ -61,7 +71,7 @@ function init() {
                     bloquear = false;
 
                     contador++;
-                    if (contador === cartas.length / 2) {
+                    if (contador === cartas.length / 2 || 1 == 1) {
                         ganador();
                     }
                 }
@@ -75,7 +85,19 @@ function init() {
 }
 
 function ganador() {
-    document.body.style.backgroundColor = "green";
+    let contenedor = document.getElementsByClassName("container")[0];
+    let boton = document.createElement("button");
+    boton.classList = 'boton';
+    boton.textContent = "Volver a jugar";
+    boton.addEventListener("click", () => reiniciar());
+    contenedor.appendChild(boton);
 }
+
+function reiniciar() {
+    const boton = document.getElementsByClassName("boton")[0];
+    if (boton) boton.remove(); // ahora sí elimina el botón del DOM
+    init();
+}
+
 
 document.addEventListener("DOMContentLoaded", init);
