@@ -71,7 +71,7 @@ function init() {
                     bloquear = false;
 
                     contador++;
-                    if (contador === cartas.length / 2 || 1 == 1) {
+                    if (contador === cartas.length / 2) {
                         ganador();
                     }
                 }
